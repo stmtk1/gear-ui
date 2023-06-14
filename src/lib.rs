@@ -8,11 +8,11 @@ use yew::{
 #[derive(Properties, PartialEq, Clone)]
 pub struct Props {
     pub value: String,
-    pub onchange: Callback<yew::html::onchange::Event>,
+    pub oninput: Callback<web_sys::InputEvent>,
 }
 
 #[function_component]
 pub fn Input(props: &Props) -> Html {
-    let Props {value, onchange} = props.clone();
-    html! { <input {value} {onchange} /> }
+    let Props {value, oninput} = props.clone();
+    html! { <input type={"text"} {value} {oninput} /> }
 }
