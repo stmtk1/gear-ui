@@ -6,13 +6,25 @@ use yew::{
 };
 
 #[derive(Properties, PartialEq, Clone)]
-pub struct Props {
+pub struct InputProps {
     pub value: String,
     pub oninput: Callback<web_sys::InputEvent>,
 }
 
 #[function_component]
-pub fn Input(props: &Props) -> Html {
-    let Props {value, oninput} = props.clone();
+pub fn Input(props: &InputProps) -> Html {
+    let InputProps {value, oninput} = props.clone();
     html! { <input type={"text"} {value} {oninput} /> }
+}
+
+#[derive(Properties, PartialEq, Clone)]
+pub struct ButtonProps {
+    pub value: String,
+    pub onclick: Callback<web_sys::MouseEvent>,
+}
+
+#[function_component]
+pub fn Button(props: &ButtonProps) -> Html {
+    let ButtonProps {value, onclick} = props.clone();
+    html! { <button {onclick}>{value}</button> }
 }
