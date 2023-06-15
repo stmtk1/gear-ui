@@ -28,3 +28,14 @@ pub fn Button(props: &ButtonProps) -> Html {
     let ButtonProps {value, onclick} = props.clone();
     html! { <button {onclick}>{value}</button> }
 }
+
+#[derive(Properties, PartialEq, Clone)]
+pub struct LabelProps {
+    pub value: String,
+}
+
+#[function_component]
+pub fn Label(props: &LabelProps) -> Html {
+    let LabelProps {value } = props.clone();
+    html! { <label>{value}</label> }
+}
